@@ -112,6 +112,14 @@ if(isUp){
 
     // 👉 TASK 4 - Use the space bar to exterminate a mosquito 👈
 
+    else if (isSpaceBar){
+      let mosquito = targeted.firstChild;
+      if (mosquito && mosquito.dataset.status === 'alive'){
+        mosquito.dataset.status = 'dead';
+        mosquito.parentElement.style.background = 'red';
+      }
+    }
+
     // 👉 TASK 5 - End the game 👈
   })
   // 👆 WORK WORK ABOVE THIS LINE 👆
