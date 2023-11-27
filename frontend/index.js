@@ -75,6 +75,7 @@ function moduleProject2() {
     let isDown = evt.key === keys.down;
     let isLeft = evt.key === keys.left;
     let isRight = evt.key === keys.right;
+    let isSpaceBar = evt.key === keys.space;
 
 
 
@@ -82,12 +83,19 @@ let targeted = document.querySelector('.targeted');
 
 if(isUp){
   console.log('You clicked Up')
-  if(targeted.parentElement){
+  if(targeted.parentElement.previousElementSibling){
+    let idx = Array.from(targeted.parentElement.children).indexOf(targeted);
     targeted.classList.remove('targeted');
-    targeted.parentElement.classList.add('targeted');
+    targeted.parentElement.previousElementSibling.children[idx].classList.add('targeted');
+    
   }
 } else if (isDown){
   console.log('You clicked Down')
+  if(targeted.parentElement.nextElementSibling){
+    let idx = Array.from(targeted.parentElement.children).indexOf(targeted)
+    targeted.classList.remove('targeted');
+    targeted.parentElement.nextElementSibling.children[idx].classList.add('targeted')
+  }
 } else if (isLeft){
   console.log('You clicked Left')
   if(targeted.previousElementSibling){
